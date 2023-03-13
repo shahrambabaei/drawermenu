@@ -55,7 +55,8 @@ class HomeScreen extends StatelessWidget {
                       bottomLeft: Radius.circular(20))),
               child: ListView(children: [
                 DrawerHeader(
-                    decoration: BoxDecoration(color: mediumBlue),
+                    margin: EdgeInsets.zero,
+                    decoration: BoxDecoration(color: Colors.blue.shade300),
                     child: Container(
                         child: Column(
                       children: [
@@ -70,13 +71,13 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ))),
                 SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
                   child: Container(
-                    height: 500,
+                    height: Get.height * .7,
                     child: ListView.builder(
                         itemCount: pageCategoryList.length,
                         itemBuilder: (c, i) {
                           return ExpansionTile(
-                            
                             title: Text(pageCategoryList.elementAt(i)),
                             childrenPadding: EdgeInsets.only(right: 10),
                             children: [
@@ -108,11 +109,4 @@ class HomeScreen extends StatelessWidget {
         ));
   }
 
-  // Widget SelectedItem() {
-  //   return Container(
-  //     height: 50,
-  //     width: 50,
-  //     color: Colors.red,
-  //   );
-  // }
 }
